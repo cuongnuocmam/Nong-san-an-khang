@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nông sản An Khang</title>
+<meta name="description" content="Nông sản & Dược liệu An Khang: tinh bột nghệ, trà cà gai leo, bánh đa cá rô, bánh đa cua, cháo hàu ăn liền đạt chuẩn OCOP 3–4 sao. Chính sách riêng cho đại lý, nhà phân phối.">
+<link rel="icon" href="assets/emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-900:#14391d; --green-800:#1d4f28; --green-700:#256232; --green-500:#3f8f2f; --green-100:#e6efdc;
+  --gold-600:#a97a1c; --gold-500:#c9962b; --gold-300:#e8c877; --gold-100:#f6ecd2;
+  --cream:#f8f4ea; --paper:#fffdf8; --ink:#1e2a20; --muted:#5d6b5f; --line:#e4dccb;
+  --serif:"Playfair Display",Georgia,serif; --sans:"Be Vietnam Pro",system-ui,sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-600)}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;color:var(--green-900)}
+h2{font-size:clamp(2rem,4vw,3rem);margin:.4rem 0 1rem}
+.lead{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.5rem;border-radius:999px;font-weight:600;font-size:.98rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold-300),var(--gold-500));color:var(--green-900);box-shadow:0 8px 22px -8px rgba(169,122,28,.6)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(169,122,28,.7)}
+.btn-line{border:1.5px solid var(--green-800);color:var(--green-800)}
+.btn-line:hover{background:var(--green-800);color:#fff}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(248,244,234,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:46px;height:46px;border-radius:50%}
+.brand b{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--green-900);line-height:1}
+.brand small{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-600);font-weight:600}
+.nav ul{display:flex;gap:2rem;list-style:none;font-weight:500;font-size:.95rem}
+.nav ul a{position:relative;padding:.3rem 0}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--gold-500);transition:width .25s}
+.nav ul a:hover::after{width:100%}
+.nav .btn{padding:.65rem 1.2rem;font-size:.9rem}
+
+/* HERO */
+.hero{padding:56px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem);margin:1rem 0 1.3rem;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--gold-600);font-weight:600}
+.hero .lead{margin-bottom:2rem}
+.hero .ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+.stats{display:flex;gap:2.4rem;margin-top:2.8rem;padding-top:1.8rem;border-top:1px solid var(--line)}
+.stats b{display:block;font-family:var(--serif);font-size:2rem;color:var(--green-800);line-height:1.1}
+.stats span{font-size:.85rem;color:var(--muted)}
+.hero-art{position:relative}
+.hero-art .frame{border-radius:240px 240px var(--radius) var(--radius);overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 80px -30px rgba(20,57,29,.45)}
+.hero-art .frame img{width:100%;height:100%;object-fit:cover;object-position:62% center}
+.hero-art .seal{position:absolute;left:-34px;bottom:48px;width:132px;height:132px;border-radius:50%;background:var(--paper);padding:8px;box-shadow:0 18px 40px -14px rgba(20,57,29,.4);animation:float 6s ease-in-out infinite}
+.hero-art .seal img{border-radius:50%}
+.hero-art .tag{position:absolute;right:-18px;top:56px;background:var(--green-800);color:#fff;padding:.9rem 1.2rem;border-radius:14px;box-shadow:0 18px 40px -14px rgba(20,57,29,.5)}
+.hero-art .tag b{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--gold-300);line-height:1}
+.hero-art .tag span{font-size:.78rem;opacity:.85}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hero::before{content:"";position:absolute;right:-180px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--gold-100),transparent 70%);z-index:-1}
+
+/* PROMISE STRIP */
+.strip{background:var(--green-900);color:#e9efe3;padding:34px 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.strip .item{display:flex;gap:.9rem;align-items:flex-start}
+.strip svg{flex:none;width:34px;height:34px;color:var(--gold-300)}
+.strip b{display:block;color:#fff;font-weight:600;margin-bottom:.15rem}
+.strip span{font-size:.88rem;opacity:.75;line-height:1.45;display:block}
+
+/* PRODUCTS */
+section{scroll-margin-top:80px}
+.products{padding:110px 0 60px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+.group-title{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.4rem;font-family:var(--serif);font-size:1.5rem;color:var(--green-800)}
+.group-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.group-title i{font-style:normal;font-family:var(--sans);font-size:.8rem;font-weight:600;color:var(--gold-600);letter-spacing:.12em}
+.group-note{margin:-.6rem 0 1.4rem;font-size:.9rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(20,57,29,.35)}
+.pic{position:relative;aspect-ratio:1/1;overflow:hidden;background:#fff;border-bottom:1px solid var(--line)}
+.pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,opacity .25s}
+.pic img.contain{object-fit:contain;padding:6%}
+.card:hover .pic img{transform:scale(1.04)}
+.pic img.swap{opacity:0}
+.ocop{position:absolute;top:16px;left:16px;z-index:2;display:flex;align-items:center;gap:.35rem;background:rgba(20,57,29,.9);color:#fff;padding:.32rem .7rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+.ocop .stars{color:var(--gold-300);letter-spacing:1px}
+.thumbs{display:flex;gap:.5rem;padding:.9rem 1.5rem 0}
+.thumbs button{width:52px;height:52px;border-radius:10px;overflow:hidden;border:2px solid var(--line);background:#fff;padding:0;transition:border-color .2s}
+.thumbs button img{width:100%;height:100%;object-fit:cover}
+.thumbs button.on{border-color:var(--gold-500)}
+.thumbs button:hover{border-color:var(--green-500)}
+.card .body{padding:1.1rem 1.5rem 1.6rem;display:flex;flex-direction:column;flex:1}
+.card .origin{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-600);margin-bottom:.35rem}
+.card h3{font-size:1.42rem;margin-bottom:.45rem}
+.card p{color:var(--muted);font-size:.94rem;margin-bottom:1.2rem}
+.specs{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.3rem}
+.specs span{font-size:.78rem;background:var(--green-100);color:var(--green-800);padding:.28rem .65rem;border-radius:8px;font-weight:500}
+.price{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;padding-top:1.1rem;border-top:1px dashed var(--line)}
+.price .ask{font-size:.86rem;color:var(--muted)}
+.price a{font-size:.88rem;font-weight:600;color:var(--gold-600)}
+.price a:hover{color:var(--green-800)}
+
+/* GALLERY */
+.gallery{padding:40px 0 100px}
+.rail{--edge:max(20px,(100% - 1180px)/2);display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--edge);padding:4px var(--edge) 18px;scrollbar-width:thin}
+.rail button{flex:0 0 clamp(240px,28vw,340px);aspect-ratio:1/1;border:0;padding:0;border-radius:var(--radius);overflow:hidden;scroll-snap-align:start;box-shadow:0 18px 36px -22px rgba(20,57,29,.45);background:#fff}
+.rail button img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.rail button:hover img{transform:scale(1.04)}
+.rail-nav{display:flex;gap:.6rem}
+.rail-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--green-800);background:none;color:var(--green-800);display:grid;place-items:center;transition:.2s}
+.rail-nav button:hover{background:var(--green-800);color:#fff}
+
+/* CERT */
+.cert{padding:100px 0;background:linear-gradient(180deg,var(--cream),var(--gold-100))}
+.cert .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+.cert-docs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cert-docs button{border:0;padding:10px;background:#fff;border-radius:12px;box-shadow:0 24px 44px -24px rgba(20,57,29,.5);transition:transform .3s}
+.cert-docs button:nth-child(1){transform:rotate(-2.5deg)}
+.cert-docs button:nth-child(2){transform:rotate(2deg) translateY(28px)}
+.cert-docs button:hover{transform:rotate(0) scale(1.03)}
+.cert-list{list-style:none;display:grid;gap:1rem;margin-top:1.6rem}
+.cert-list li{display:flex;gap:1rem;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem}
+.cert-list .st{flex:none;font-weight:700;font-size:.78rem;color:#fff;background:var(--green-800);border-radius:8px;padding:.35rem .55rem;white-space:nowrap}
+.cert-list .st i{font-style:normal;color:var(--gold-300)}
+.cert-list b{display:block;color:var(--green-900)}
+.cert-list span{font-size:.88rem;color:var(--muted)}
+
+[hidden]{display:none!important}
+
+/* DEALER */
+.dealer{position:relative;padding:120px 0;color:#fff;overflow:hidden}
+.dealer .bg{position:absolute;inset:0;background:url(assets/banner-scene.jpg) center/cover}
+.dealer .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,40,20,.94) 0%,rgba(14,40,20,.82) 45%,rgba(14,40,20,.35) 100%)}
+.dealer .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.dealer h2{color:#fff}
+.dealer .eyebrow{color:var(--gold-300)}
+.dealer .lead{color:rgba(255,255,255,.8)}
+.perks{list-style:none;display:grid;gap:1rem;margin:2rem 0 2.4rem}
+.perks li{display:flex;gap:.8rem;align-items:flex-start}
+.perks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--gold-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314391d' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/13px no-repeat}
+.dealer .card-glass{background:rgba(255,253,248,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:var(--radius);padding:2rem}
+.card-glass h3{color:#fff;font-size:1.5rem;margin-bottom:1.2rem}
+.contact-row{display:flex;gap:1rem;align-items:center;padding:1rem 0;border-top:1px solid rgba(255,255,255,.14)}
+.contact-row svg{width:22px;height:22px;color:var(--gold-300);flex:none}
+.contact-row small{display:block;font-size:.76rem;opacity:.65;letter-spacing:.06em;text-transform:uppercase}
+.contact-row b{font-weight:600}
+
+/* LIGHTBOX */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,900px);max-height:92vh;margin:auto}
+dialog.lb::backdrop{background:rgba(10,25,14,.85);backdrop-filter:blur(4px)}
+dialog.lb img{max-width:100%;max-height:88vh;border-radius:12px;margin:auto}
+dialog.lb .x{position:fixed;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--green-900);font-size:1.4rem;line-height:1}
+
+/* FOOTER */
+footer{background:var(--green-900);color:rgba(255,255,255,.7);padding:60px 0 30px;font-size:.9rem}
+footer .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .brand b{color:#fff}
+footer .brand small{color:var(--gold-300)}
+footer p.slogan{font-family:var(--serif);font-style:italic;color:var(--gold-300);font-size:1.15rem;margin-top:1rem}
+footer ul{list-style:none;display:grid;gap:.5rem}
+footer h4{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+footer a:hover{color:var(--gold-300)}
+footer .bottom{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem;opacity:.7}
+
+/* REVEAL */
+.js .reveal:not(.in){animation:rise .8s ease both}
+@keyframes rise{from{opacity:.001;transform:translateY(18px)}}
+@media (prefers-reduced-motion:reduce){.js .reveal:not(.in){animation:none}.hero-art .seal{animation:none}html{scroll-behavior:auto}}
+
+/* RESPONSIVE */
+@media (max-width:980px){
+  .nav ul{display:none}
+  .hero .wrap,.dealer .wrap,.cert .wrap{grid-template-columns:1fr}
+  .hero-art{max-width:460px;margin:0 auto;width:100%}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .strip .wrap{grid-template-columns:repeat(2,1fr)}
+  .cert-docs{max-width:520px}
+}
+@media (max-width:620px){
+  .wrap{width:calc(100% - 32px)}
+  .hero{padding:28px 0 70px}
+  .stats{gap:1.4rem}
+  .stats b{font-size:1.6rem}
+  .grid,.strip .wrap{grid-template-columns:1fr}
+  .hero-art .seal{left:-8px;width:104px;height:104px}
+  .hero-art .tag{right:-4px}
+  .nav .btn{display:none}
+  .products{padding-top:80px}
+  .dealer,.cert{padding:80px 0}
+  .rail{--edge:16px}
+  .rail-nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/emblem.png" alt="Logo An Khang"><span><b>An Khang</b><small>Nông sản & Dược liệu</small></span></a>
+    <ul>
+      <li><a href="#san-pham">Sản phẩm</a></li>
+      <li><a href="#chung-nhan">Chứng nhận</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+      <li><a href="#dai-ly">Đại lý</a></li>
+    </ul>
+    <a href="#lien-he" class="btn btn-gold">Đặt hàng</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Công ty TNHH Nông sản và Sức khỏe An Khang</span>
+        <h1>Sức khỏe <em>từ thiên nhiên</em>, đến bàn ăn mỗi nhà.</h1>
+        <p class="lead">Tinh bột nghệ, trà cà gai leo từ vùng núi Lào Cai, cùng bánh đa cá rô, bánh đa cua và cháo hàu ăn liền mang vị Hải Phòng. Tất cả đạt chuẩn OCOP, có chính sách riêng cho đại lý và nhà phân phối.</p>
+        <div class="ctas">
+          <a href="#san-pham" class="btn btn-gold">Xem sản phẩm
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#lien-he" class="btn btn-line">Liên hệ đặt hàng</a>
+        </div>
+        <div class="stats">
+          <div><b>8</b><span>mã sản phẩm</span></div>
+          <div><b>OCOP</b><span>3 sao & 4 sao</span></div>
+          <div><b>3 phút</b><span>có bữa ăn liền</span></div>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="frame"><img src="assets/banner-scene.jpg" alt="Ruộng bậc thang, rau củ và dược liệu An Khang"></div>
+        <div class="seal"><img src="assets/emblem.png" alt=""></div>
+        <div class="tag"><b>Chính hãng</b><span>Có giấy chứng nhận OCOP</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <div class="strip">
+    <div class="wrap">
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg><div><b>Chuẩn OCOP</b><span>Toàn bộ sản phẩm đạt OCOP 3–4 sao</span></div></div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21c0-9 5-14 14-16-1 9-6 14-14 16zM5 21l7-7"/></svg><div><b>Nguyên chất</b><span>Tinh bột nghệ 100% nguyên chất từ Lào Cai</span></div></div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><div><b>Tiện lợi</b><span>Bánh đa, cháo ăn liền có gói thịt thật, 3 phút là xong</span></div></div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/></svg><div><b>Hỗ trợ đại lý</b><span>Chiết khấu riêng cho đại lý, nhà phân phối</span></div></div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="san-pham">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow">Sản phẩm</span>
+          <h2>Từ núi rừng Lào Cai<br>đến bữa sáng đất Cảng</h2>
+        </div>
+        <p class="lead">Hai nhóm hàng chính: nông sản – dược liệu dùng hằng ngày, và thực phẩm ăn liền đặc sản Hải Phòng.</p>
+      </div>
+
+      <div class="group-title reveal">Nông sản – Dược liệu <i>3 SẢN PHẨM</i></div>
+      <p class="group-note reveal">Sản xuất bởi HTX Nông sản Dược liệu Mạnh Hương, huyện Bảo Thắng, Lào Cai.</p>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="pic"><span class="ocop"><span class="stars">★★★</span> OCOP 3 SAO</span>
+            <img src="assets/sp/nghe-do-nep.webp" alt="Tinh bột nghệ đỏ nếp Mạnh Hương hũ và hộp 500g" loading="lazy"></div>
+          <div class="thumbs">
+            <button class="on" data-src="assets/sp/nghe-do-nep.webp" aria-label="Ảnh sản phẩm"><img src="assets/sp/nghe-do-nep.webp" alt=""></button>
+            <button data-src="assets/sp/ocop-nghe-do-nep.webp" data-fit="contain" aria-label="Giấy chứng nhận OCOP"><img src="assets/sp/ocop-nghe-do-nep.webp" alt=""></button>
+          </div>
+          <div class="body">
+            <span class="origin">Lào Cai · Nguyên chất</span>
+            <h3>Tinh bột Nghệ Đỏ Nếp</h3>
+            <p>100% tinh bột nghệ đỏ nếp nguyên chất, nguyên liệu từ vùng núi Hoàng Liên Sơn. Pha nước ấm uống trực tiếp hoặc dùng làm gia vị chế biến món ăn.</p>
+            <div class="specs"><span>Hộp 500g</span><span>30 hộp/thùng</span></div>
+            <div class="price"><span class="ask">Giá sỉ cho đại lý</span><a href="#lien-he">Liên hệ báo giá →</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="pic"><span class="ocop"><span class="stars">★★★</span> OCOP 3 SAO</span>
+            <img src="assets/sp/nghe-doc-than-ke.webp" alt="Kệ tinh bột nghệ độc thân Mạnh Hương" loading="lazy"></div>
+          <div class="thumbs">
+            <button class="on" data-src="assets/sp/nghe-doc-than-ke.webp" aria-label="Ảnh kệ hàng"><img src="assets/sp/nghe-doc-than-ke.webp" alt=""></button>
+            <button data-src="assets/sp/nghe-doc-than.webp" aria-label="Ảnh hũ và hộp"><img src="assets/sp/nghe-doc-than.webp" alt=""></button>
+            <button data-src="assets/sp/ocop-nghe-doc-than.webp" data-fit="contain" aria-label="Giấy chứng nhận OCOP"><img src="assets/sp/ocop-nghe-doc-than.webp" alt=""></button>
+          </div>
+          <div class="body">
+            <span class="origin">Lào Cai · Dòng cao cấp</span>
+            <h3>Tinh bột Nghệ Độc Thân</h3>
+            <p>Tinh bột nghệ nguyên chất làm từ giống nghệ độc thân (nghệ cô đơn). Màu ngà sáng, mịn, đóng hũ và hộp sang trọng, hợp làm quà biếu.</p>
+            <div class="specs"><span>Hộp 500g</span><span>30 hộp/thùng</span></div>
+            <div class="price"><span class="ask">Giá sỉ cho đại lý</span><a href="#lien-he">Liên hệ báo giá →</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="pic"><span class="ocop"><span class="stars">★★★</span> OCOP 3 SAO</span>
+            <img class="contain" src="assets/sp/tra-ca-gai-leo.webp" alt="Hộp trà túi lọc cà gai leo Mạnh Hương" loading="lazy"></div>
+          <div class="body" style="padding-top:1.4rem">
+            <span class="origin">Lào Cai · Trà túi lọc</span>
+            <h3>Trà Cà Gai Leo</h3>
+            <p>Thành phần chính cà gai leo (80%), phối lạc tiên, thảo quyết minh, liên tâm, cúc hoa, hòe hoa, cỏ ngọt. Mỗi gói hãm với 100ml nước sôi trong 5 phút.</p>
+            <div class="specs"><span>Hộp 50 gói</span><span>50 hộp/thùng</span></div>
+            <div class="price"><span class="ask">Giá sỉ cho đại lý</span><a href="#lien-he">Liên hệ báo giá →</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="group-title reveal">Thực phẩm ăn liền <i>5 MÃ HÀNG</i></div>
+      <p class="group-note reveal">Đặc sản Hải Phòng, có gói thịt thật đi kèm. Chế nước sôi, chỉ 3 phút là có bữa ăn ngon.</p>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="pic"><span class="ocop"><span class="stars">★★★★</span> OCOP 4 SAO</span>
+            <img class="contain" src="assets/sp/ca-ro-hop.webp" alt="Bánh đa cá rô đồng ăn liền dạng hộp 135g" loading="lazy"></div>
+          <div class="thumbs">
+            <button class="on" data-src="assets/sp/ca-ro-hop.webp" data-fit="contain" aria-label="Dạng hộp"><img src="assets/sp/ca-ro-hop.webp" alt=""></button>
+            <button data-src="assets/sp/ca-ro-goi.webp" data-fit="contain" aria-label="Dạng gói"><img src="assets/sp/ca-ro-goi.webp" alt=""></button>
+            <button data-src="assets/sp/ca-ro-poster.webp" aria-label="Bát bánh đa cá rô"><img src="assets/sp/ca-ro-poster.webp" alt=""></button>
+          </div>
+          <div class="body">
+            <span class="origin">Hải Phòng · Hộp & gói</span>
+            <h3>Bánh Đa Cá Rô Đồng</h3>
+            <p>Nước dùng ngọt thanh, sợi bánh đa dai mềm, kèm gói thịt cá thật. Có dạng hộp tiện ăn ngay và dạng gói để nấu tại nhà.</p>
+            <div class="specs"><span>Hộp 135g · 12 hộp/thùng</span><span>Gói 125g · 20 gói/thùng</span></div>
+            <div class="price"><span class="ask">Giá sỉ cho đại lý</span><a href="#lien-he">Liên hệ báo giá →</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="pic"><span class="ocop"><span class="stars">★★★★</span> OCOP 4 SAO</span>
+            <img class="contain" src="assets/sp/cua-hop.webp" alt="Bánh đa cua đồng ăn liền dạng hộp 135g" loading="lazy"></div>
+          <div class="thumbs">
+            <button class="on" data-src="assets/sp/cua-hop.webp" data-fit="contain" aria-label="Dạng hộp"><img src="assets/sp/cua-hop.webp" alt=""></button>
+            <button data-src="assets/sp/cua-goi.webp" data-fit="contain" aria-label="Dạng gói"><img src="assets/sp/cua-goi.webp" alt=""></button>
+            <button data-src="assets/sp/cua-goi-poster.webp" aria-label="Bát bánh đa cua"><img src="assets/sp/cua-goi-poster.webp" alt=""></button>
+          </div>
+          <div class="body">
+            <span class="origin">Hải Phòng · Hộp & gói</span>
+            <h3>Bánh Đa Cua Đồng</h3>
+            <p>Bánh đa trắng truyền thống, nước dùng cua đồng đậm vị, có sẵn gia vị và gói thịt thật. Thơm ngon như bát bánh đa cua ngoài hàng.</p>
+            <div class="specs"><span>Hộp 135g · 12 hộp/thùng</span><span>Gói 125g · 20 gói/thùng</span></div>
+            <div class="price"><span class="ask">Giá sỉ cho đại lý</span><a href="#lien-he">Liên hệ báo giá →</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="pic"><span class="ocop"><span class="stars">★★★★</span> OCOP 4 SAO</span>
+            <img class="contain" src="assets/sp/chao-hau-hop.webp" alt="Cháo hàu ăn liền dạng hộp 120g" loading="lazy"></div>
+          <div class="thumbs">
+            <button class="on" data-src="assets/sp/chao-hau-hop.webp" data-fit="contain" aria-label="Dạng hộp"><img src="assets/sp/chao-hau-hop.webp" alt=""></button>
+            <button data-src="assets/sp/chao-hau-poster.webp" aria-label="Bát cháo hàu"><img src="assets/sp/chao-hau-poster.webp" alt=""></button>
+          </div>
+          <div class="body">
+            <span class="origin">Hải Phòng · Hộp</span>
+            <h3>Cháo Hàu Ăn Liền</h3>
+            <p>Hàu ngọt đậm, cháo sánh thơm, rắc hành phi. Bữa sáng nóng hổi cho người bận rộn, tiện mang đi làm, đi học.</p>
+            <div class="specs"><span>Hộp 120g</span><span>12 hộp/thùng</span></div>
+            <div class="price"><span class="ask">Giá sỉ cho đại lý</span><a href="#lien-he">Liên hệ báo giá →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" aria-label="Hình ảnh sản phẩm">
+    <div class="wrap sec-head reveal" style="margin-bottom:1.6rem">
+      <div><span class="eyebrow">Hình ảnh</span><h2 style="margin-bottom:0">Ngon từ cái nhìn đầu tiên</h2></div>
+      <div class="rail-nav"><button data-dir="-1" aria-label="Lùi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button data-dir="1" aria-label="Tiếp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="rail" id="rail">
+      <button data-zoom><img src="assets/sp/ca-ro-goi-poster.webp" alt="Bánh đa cá rô đồng Khánh Thọ dạng gói" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/cua-goi-poster.webp" alt="Bánh đa cua đồng Khánh Thọ" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/chao-hau-poster.webp" alt="Cháo hàu ăn liền" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/ca-ro-poster-do.webp" alt="Bánh đa cá rô đồng bánh đa đỏ" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/nghe-doc-than-ke.webp" alt="Kệ tinh bột nghệ độc thân" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/ca-ro-poster-trang.webp" alt="Bánh đa cá rô đồng bánh đa trắng" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/nghe-do-nep.webp" alt="Tinh bột nghệ đỏ nếp" loading="lazy"></button>
+      <button data-zoom><img src="assets/sp/ca-ro-hop-do.webp" alt="Bánh đa cá rô đồng hộp 135g" loading="lazy"></button>
+    </div>
+  </section>
+
+  <!-- CERT -->
+  <section class="cert" id="chung-nhan">
+    <div class="wrap">
+      <div class="cert-docs reveal">
+        <button data-zoom aria-label="Xem giấy chứng nhận OCOP nghệ đỏ nếp"><img src="assets/sp/ocop-nghe-do-nep.webp" alt="Giấy chứng nhận OCOP 3 sao tinh bột nghệ đỏ nếp nguyên chất" loading="lazy"></button>
+        <button data-zoom aria-label="Xem giấy chứng nhận OCOP nghệ độc thân"><img src="assets/sp/ocop-nghe-doc-than.webp" alt="Giấy chứng nhận OCOP 3 sao tinh bột nghệ cô đơn nguyên chất Mạnh Hương" loading="lazy"></button>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Chứng nhận OCOP</span>
+        <h2>Chất lượng được công nhận</h2>
+        <p class="lead">Mỗi sản phẩm An Khang phân phối đều đạt chuẩn OCOP (Mỗi xã một sản phẩm) do cơ quan nhà nước đánh giá và cấp giấy chứng nhận.</p>
+        <ul class="cert-list">
+          <li><span class="st">OCOP <i>3★</i></span><div><b>Tinh bột nghệ đỏ nếp nguyên chất</b><span>UBND huyện Bảo Thắng, QĐ số 2356/QĐ-UBND ngày 28/6/2025</span></div></li>
+          <li><span class="st">OCOP <i>3★</i></span><div><b>Tinh bột nghệ cô đơn nguyên chất Mạnh Hương</b><span>UBND huyện Bảo Thắng, QĐ số 2691/QĐ-UBND ngày 12/6/2025</span></div></li>
+          <li><span class="st">OCOP <i>4★</i></span><div><b>Bánh đa cá rô, bánh đa cua, cháo hàu ăn liền</b><span>Sản phẩm đạt OCOP 4 sao, đặc sản Hải Phòng</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- DEALER -->
+  <section class="dealer" id="dai-ly">
+    <div class="bg"></div>
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Hợp tác phân phối</span>
+        <h2>Trở thành đại lý An Khang</h2>
+        <p class="lead">Chúng tôi tìm kiếm đại lý, cửa hàng đặc sản, cửa hàng thực phẩm sạch và nhà phân phối trên toàn quốc.</p>
+        <ul class="perks">
+          <li>Sản phẩm đạt chuẩn OCOP, có giấy chứng nhận rõ ràng</li>
+          <li>Chính sách chiết khấu riêng, báo giá nhanh qua điện thoại, Zalo</li>
+          <li>Hai nhóm hàng bổ trợ nhau: quà sức khỏe và đồ ăn liền bán quanh năm</li>
+        </ul>
+        <a href="tel:0844441221" class="btn btn-gold">Gọi 0844 441 221 nhận chính sách đại lý</a>
+      </div>
+      <div class="card-glass reveal" id="lien-he">
+        <h3>Liên hệ đặt hàng</h3>
+        <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><div><small>Hotline / Zalo</small><b><a href="tel:0844441221">0844 441 221</a> · <a href="https://zalo.me/0844441221" target="_blank" rel="noopener">Nhắn Zalo</a></b></div></div>
+        <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><small>Địa chỉ</small><b>Hà Nội, Việt Nam</b></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="#top" class="brand"><img src="assets/emblem.png" alt=""><span><b>An Khang</b><small>Nông sản & Dược liệu</small></span></a>
+        <p class="slogan">Sức khỏe từ thiên nhiên</p>
+      </div>
+      <div>
+        <h4>Sản phẩm</h4>
+        <ul><li><a href="#san-pham">Tinh bột nghệ</a></li><li><a href="#san-pham">Trà cà gai leo</a></li><li><a href="#san-pham">Bánh đa ăn liền</a></li><li><a href="#san-pham">Cháo hàu ăn liền</a></li></ul>
+      </div>
+      <div>
+        <h4>Công ty</h4>
+        <ul><li>Công ty TNHH Nông sản và Sức khỏe An Khang</li><li>Hà Nội, Việt Nam</li><li>Hotline: <a href="tel:0844441221">0844 441 221</a></li></ul>
+      </div>
+    </div>
+    <div class="bottom"><span>© 2026 An Khang. Bảo lưu mọi quyền.</span><span>Hotline 0844 441 221</span></div>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb"><button class="x" aria-label="Đóng">×</button><img alt=""></dialog>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Thẻ sản phẩm: đổi ảnh khi bấm ảnh nhỏ
+  document.querySelectorAll('.card').forEach(card=>{
+    const main=card.querySelector('.pic img');
+    card.querySelectorAll('.thumbs button').forEach(t=>t.addEventListener('click',()=>{
+      card.querySelectorAll('.thumbs button').forEach(x=>x.classList.toggle('on',x===t));
+      main.classList.add('swap');
+      setTimeout(()=>{main.src=t.dataset.src;main.classList.toggle('contain',t.dataset.fit==='contain');main.classList.remove('swap')},180);
+    }));
+    main.style.cursor='zoom-in';
+    main.addEventListener('click',()=>openLb(main.src,main.alt));
+  });
+
+  // Xem ảnh lớn
+  const lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+  function openLb(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.showModal()}
+  document.querySelectorAll('[data-zoom]').forEach(b=>b.addEventListener('click',()=>{const i=b.querySelector('img');openLb(i.src,i.alt)}));
+  lb.addEventListener('click',e=>{if(e.target!==lbImg)lb.close()});
+
+  // Dải ảnh: nút lùi / tiếp
+  const rail=document.getElementById('rail');
+  document.querySelectorAll('.rail-nav button').forEach(b=>b.addEventListener('click',()=>rail.scrollBy({left:b.dataset.dir*rail.clientWidth*.7,behavior:'smooth'})));
+</script>
+</body>
+</html>
